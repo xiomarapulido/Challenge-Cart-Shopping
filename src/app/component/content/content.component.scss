@@ -1,0 +1,60 @@
+$colorPrimary: #FD6250;
+$colorSecundary: #fff3e0;
+$colorSubtitle: #424242 ;
+$colorTitle: #00897b;
+
+.wrap-products{
+    margin-top: 20px;
+
+    .card-product{
+        width:24%; 
+        display: inline-block; 
+        margin-right: 1%;
+        margin-bottom: 10px;
+    }
+
+    .card-details {
+        background-color: $colorSecundary;
+        cursor: pointer;
+    }
+
+    .card-product-container{
+        padding-left: 10px;
+        padding-top: 10px;
+    }
+
+    .img{
+        width: 100%;
+    }
+
+    .content-name{
+        margin-bottom: 15px;
+    }
+
+    .subtitle{
+        font-weight: bold;
+        color: $colorSubtitle;
+    }
+
+    .text-details{
+        color: $colorPrimary;  
+        font-weight: 500;  
+        font-size: 17px !important;    
+    }
+
+    .title{
+        color: $colorTitle;
+        
+    }
+}
+
+
+@media (max-width: 500px){
+
+    .card-product{
+        width:100% !important; 
+        display: block !important; 
+        margin-right: 0 !important;
+    }
+
+}

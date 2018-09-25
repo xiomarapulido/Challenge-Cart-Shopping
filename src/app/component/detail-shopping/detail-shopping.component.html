@@ -1,0 +1,54 @@
+<div id="modalCartShopping" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg modal-products">
+        <div class="modal-container modal-content">
+            <div class="modal-header">
+                <h5 class="color-text-title">{{YOURPRODUCTS}}</h5>
+                <h5>
+                    <i class="fa fa-times color-text-title" aria-hidden="true" data-dismiss="modal"></i>
+                </h5>
+            </div>
+            <div class="modal-body">
+                <div *ngIf="productOnCart?.length>0">
+                    <table class="table">
+                        <thead>
+                            <tr class="title">
+                                <th scope="col">{{PRODUCT}}</th>
+                                <th scope="col">{{QUANTITY}}</th>
+                                <th scope="col">{{PRICE}}</th>
+                                <th scope="col">{{TOTALPRICE}}</th>
+                                <th scope="col">{{DELETE}}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let product of productOnCart">
+                                <td>{{product.name}}</td>
+                                <td>
+                                    <input class="custom-select selector" type="number" min="1" [(ngModel)]="product.quantity"> 
+                                 
+                                </td>
+                                <td>{{product.price | currency:'USD':true}}</td>
+
+                                <td>{{product.price * product.quantity | currency:'USD':true}}</td>
+                                <td>
+                                    <i class="fa fa-2x fa-trash icon-trash" (click)="deleteToCart(product)"></i>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="content-buttom">
+                        <button type="button" class="btn btn-cart" (click)="deleteCart()">{{BUY}}</button>
+                    </div>
+                </div>
+                <div *ngIf="productOnCart?.length==0">
+                    <div *ngIf="showAlert == 'false'">
+                        <label class="text-product-none">{{NOPRODUCTS}}</label>
+                    </div>
+                </div>
+                <div *ngIf="showAlert == 'true'">
+                    <label class="text-product-none">{{BUYSUCCESS}}</label>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

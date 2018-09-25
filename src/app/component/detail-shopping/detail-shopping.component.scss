@@ -1,0 +1,37 @@
+$colorSubtitle: #424242 ;
+$colorPrimary: #FD6250;
+$colorText: #FFFFFF;
+$colorTrash: red;
+$colorTitle: #00897b;
+
+.color-text-title{
+    color: $colorPrimary;
+}
+
+.icon-trash{
+    color: $colorTrash;
+    cursor: pointer;
+}
+
+.text-product-none{
+    color: $colorTitle;
+}
+
+.btn-cart{
+    width: 100%;
+    background-color: $colorPrimary;
+    color: $colorText;
+}
+
+.title{
+    color: $colorTitle !important;
+    font-weight: 200;
+}
+
+.text-price{
+    font-weight: bold;
+}
+
+.modal-products{
+    min-width: 350px;
+}

@@ -1,0 +1,88 @@
+<div class="wrap-filter-component">
+  <div>
+    <div class="wrap-title">
+      <h2 class="title">{{PRODUCTS}}</h2>
+    </div>
+    <div class="wrap-icon-toogle" (click)="show = !show">
+      <i class="fa fa-2x fa-align-justify icon-toogle"></i>
+    </div>
+    <div *ngIf="!show" [@enterAnimation]>
+      <div class="wrap-option">
+        <div class="wrap-selector content-control">
+          <label class="label-control">{{CATEGORIES}}</label>
+          
+          <select class="custom-select selector" [(ngModel)]="categorySelected" (ngModelChange)="addFilter('sublevel_id', categorySelected)">
+            <optgroup label="{{catego.name}}" *ngFor="let catego of category">              
+                <option *ngFor="let sub of catego.sublevels" value="{{sub.id}}">{{sub.name}}</option>
+              <option value="{{lev.id}}" *ngFor="let lev of catego.sublevels[0].sublevels" class="enabled">{{lev.name}}</option>
+            </optgroup>
+            <option value="-1" selected class="enabled">{{ALL}}</option>
+          </select>
+
+        </div>
+        <div class="wrap-selector content-order">
+          <label class="label-control">{{ORDER}}</label>
+          <select class="custom-select selector" [(ngModel)]="orderBySelected" (ngModelChange)="addFilter('order', orderBySelected)">
+            <option value="-1" selected>{{ALL}}</option>
+            <option *ngFor="let orderBy of orderBy" value="{{orderBy.value}}">{{orderBy.name}}</option>
+          </select>
+        </div>
+        <div class="wrap-selector content-control-text">
+          <label>{{FINDPRODUCT}}</label>
+          <input placeholder="{{SEARCH}}" id="first_name" type="text" class="form-control control-text" [(ngModel)]="searchSelected"
+            (keyup)="filterProduct()">
+        </div>
+      </div>
+
+      <div class="wrap-option">
+        <div class="wrap-selector content-control">
+          <label class="label-control">{{AVAILABILITY}}</label>
+          <select class="custom-select selector" [(ngModel)]="availableSelected" (ngModelChange)="addFilter('available', availableSelected)">
+            <option value="-1" selected>{{ALL}}</option>
+            <option *ngFor="let available of available" value="{{available.value}}">{{available.name}}</option>
+          </select>
+        </div>
+        <div class="wrap-selector content-control">
+          <label class="label-control">{{QUANTITY}}</label>
+          <input class=" custom-select selector" type="number" min="1" placeholder="{{ALL}}" [(ngModel)]="quantitySelected"
+            (ngModelChange)="addFilter('quantity', quantitySelected)">
+        </div>
+        <div class="wrap-selector content-control-text">
+
+          <div class="wrap-selector content-range">
+            <div class="content-input-range minprice">
+              <label>{{STARTPRICE}}:</label>
+              <label *ngIf="minPrice != '0'"> ${{minPrice}}.000</label>
+              <label *ngIf="minPrice == '0'"> {{ALL}}</label>
+
+              <input type="range" id="minPrice" min="0" max="1000" [(ngModel)]="minPrice" (ngModelChange)="addFilter('minPrice', minPrice)"
+                class="control-text margin-input-range">
+            </div>
+          </div>
+          <div class="wrap-selector content-range">
+            <div class="content-input-range maxprice">
+              <label>{{FINISHPRICE}}:</label>
+              <label *ngIf="maxPrice != '0'"> ${{maxPrice}}.000</label>
+              <label *ngIf="maxPrice == '0'"> {{ALL}}</label>
+
+              <input type="range" id="maxPrice" min="0" max="1000" [(ngModel)]="maxPrice" (ngModelChange)="addFilter('maxPrice', maxPrice)"
+                value="{{maxPrice}}" class="control-text margin-input-range">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="minPrice > maxPrice">
+        <div *ngIf="minPrice != 0">
+          <div *ngIf="maxPrice != 0">
+            <label class="title">{{RANGEPRICE}}</label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="line"></div>
+
+
+
+  </div>
+</div>

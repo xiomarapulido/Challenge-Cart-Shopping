@@ -1,0 +1,35 @@
+$colorPrimary: #FD6250;
+$colorWhite: #ffffff;
+
+.header{
+    background-color: $colorPrimary;    
+    box-sizing: border-box;
+    padding: 10px 50px 10px 50px;
+    width: 100%;
+    position: fixed;
+    min-height: 60px;
+    z-index: 20;
+}
+
+.header .wrap-title{
+    display: inline-block;
+    width: 60%;
+    text-align: left;
+    font-family: title-text;
+}
+
+.wrap-title .title{
+    font-family: title-text;
+    font-size: 25px;
+    color: $colorWhite;
+}
+.header .icon{
+    display: inline-block;
+    width: 40%;
+    text-align: right;
+}
+
+.icon .icon-cart{
+    color: $colorWhite;
+    cursor: pointer;
+}

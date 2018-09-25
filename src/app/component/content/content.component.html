@@ -1,0 +1,33 @@
+<div class="wrap-products">
+
+
+  <div class="card-product" *ngFor="let product of products">
+    <div class="card">
+      <div class="card-image">
+        <img class="img" src="../../../assets/image/test.jpg">
+
+      </div>
+      <div class="card-content card-block card-product-container">
+        <div class="content-name"><h5 class="card-title title">{{product.name | titlecase}}</h5></div>
+        <div>
+          <label class="subtitle">{{PRICE}}: </label>
+          <label>{{product.price}}</label>
+        </div>
+        <div>
+          <label class="subtitle">{{QUANTITY}}: </label>
+          <label>{{product.quantity}}</label>
+        </div>
+        <div>
+          <label class="subtitle">{{AVAILABILITY}}: </label>
+          <label *ngIf="product.available">Si</label>
+          <label *ngIf="! product.available">No</label>         
+        </div>
+      </div>
+      <div class="card-footer text-muted card-action card-details" data-toggle="modal" data-target="#modalDetalis" (click)="viewProduct(product)">
+        <span class="text-details">{{DETAILS}}</span>
+      </div>
+    </div>
+  </div>
+
+
+</div>

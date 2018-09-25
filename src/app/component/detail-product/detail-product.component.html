@@ -1,0 +1,50 @@
+<div id="modalDetalis" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-container modal-content" *ngIf="product">
+      <div class="modal-header">
+        <h5 class="color-text-title"> {{product.name | titlecase}}</h5>
+        <h5>
+          <i class="fa fa-times color-text-title" aria-hidden="true" data-dismiss="modal"></i>
+        </h5>
+      </div>
+      <div class="modal-body">
+        <div class="content-info">
+          <img class="img" src="../../../assets/image/test.jpg">
+        </div>
+
+        <div class="content-info">
+          <div class="content-info-data">
+            <label class="subtitle">{{PRICE}}: </label>
+            <label> {{price | currency:'USD':true}}</label>
+          </div>
+          <div class="content-info-data">
+            <label class="subtitle">{{QUANTITYSTOCK}}: </label>
+            {{product.quantity}}
+          </div>
+          <div class="content-info-data">
+            <label class="subtitle">{{QUANTITY}}: </label>
+            <input class="custom-select selector" type="number" min="1" placeholder="" value="1" [(ngModel)]="quantity">
+          </div>
+          <div class="content-info-data">
+            <label class="subtitle">{{TOTALPRICE}}: </label>
+            <label> {{quantity * price | currency:'USD':true}} </label>
+          </div>
+        </div>
+        <div class="content-buttom" *ngIf="product.available == true">
+          <div *ngIf="seeModal == 'true'"> 
+            <button type="button" class="btn btn-cart" (click)="addToCart(product)">{{ADDCART}}</button>
+          </div>
+          <div *ngIf="seeModal == 'false'">
+            <div class="alert alert-success" role="alert">
+              {{SUCCESS}}
+            </div>
+          </div>
+        </div>
+        <div class="content-buttom" *ngIf="product.available == false">
+          <h5 class="color-text-title"> {{NOTAVAILABLE}}</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

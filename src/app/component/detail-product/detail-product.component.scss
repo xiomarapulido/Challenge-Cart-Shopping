@@ -1,0 +1,37 @@
+$colorSubtitle: #424242 ;
+$colorPrimary: #FD6250;
+$colorText: #FFFFFF;
+
+.color-text-title{
+    color: $colorPrimary;
+}
+
+.subtitle{
+    font-weight: bold;
+    color: $colorSubtitle;
+}
+
+.content-info{
+    display: inline-block;
+    width: 50%;
+}
+
+.content-buttom{
+    margin-top: 20px;
+}
+
+.img{
+    width: 95%;
+    margin-top: -100px;
+}
+
+.selector{
+    width: 90%;
+}
+
+.btn-cart{
+    width: 100%;
+    background-color: $colorPrimary;
+    color: $colorText;
+}
+
